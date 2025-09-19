@@ -1,0 +1,434 @@
+@prefix : <https://purl.archive.org/domain/mfae#> .
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix MFAE: <https://purl.archive.org/domain/mfae> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lrmoo: <http://iflastandards.info/ns/lrm/lrmoo/> .
+@prefix schema: <https://schema.org/> .
+@prefix wikidata: <https://www.wikidata.org/wiki/> .
+@prefix cidoc-crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@base <https://purl.archive.org/domain/mfae#> .
+
+<https://purl.archive.org/domain/mfae> rdf:type owl:Ontology .
+
+#	ANEXO 5. Referente a la ontología codificada en el formato de serialización Terse RDF Triple Language (Turtle)
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#time
+xsd:time rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://iflastandards.info/ns/lrm/lrmoo/R3i_realises
+lrmoo:R3i_realises rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain lrmoo:F2_Expression ;
+                   rdfs:range lrmoo:F1_Work .
+
+
+###  http://iflastandards.info/ns/lrm/lrmoo/R4i_is_embodied_in
+lrmoo:R4i_is_embodied_in rdf:type owl:ObjectProperty ;
+                         rdfs:domain lrmoo:F3_Manifestation ;
+                         rdfs:range lrmoo:F2_Expression .
+
+
+###  http://iflastandards.info/ns/lrm/lrmoo/R67_has_part
+lrmoo:R67_has_part rdf:type owl:ObjectProperty ;
+                   rdfs:domain lrmoo:F1_Work ;
+                   rdfs:range lrmoo:F1_Work .
+
+
+###  http://iflastandards.info/ns/lrm/lrmoo/R7i_is_exemplified_by
+lrmoo:R7i_is_exemplified_by rdf:type owl:ObjectProperty ;
+                            rdfs:domain lrmoo:F5_Item ;
+                            rdfs:range lrmoo:F3_Manifestation .
+
+
+###  http://schema.org/author
+<http://schema.org/author> rdf:type owl:ObjectProperty ;
+                           rdfs:domain lrmoo:F5_Item ;
+                           rdfs:range cidoc-crm:E39_Actor .
+
+
+###  http://schema.org/birthPlace
+<http://schema.org/birthPlace> rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf <http://schema.org/location> ;
+                               rdfs:domain cidoc-crm:E21_Person ;
+                               rdfs:range cidoc-crm:E53_Place .
+
+
+###  http://schema.org/deathPlace
+<http://schema.org/deathPlace> rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf <http://schema.org/location> ;
+                               rdfs:domain cidoc-crm:E21_Person ;
+                               rdfs:range cidoc-crm:E53_Place .
+
+
+###  http://schema.org/inLanguage
+<http://schema.org/inLanguage> rdf:type owl:ObjectProperty ;
+                               rdfs:domain lrmoo:F1_Work ,
+                                           lrmoo:F2_Expression ;
+                               rdfs:range <https://purl.archive.org/domain/mfae/E56_LANGUAGE> .
+
+
+###  http://schema.org/location
+<http://schema.org/location> rdf:type owl:ObjectProperty ;
+                             rdfs:domain lrmoo:F3_Manifestation ,
+                                         cidoc-crm:E53_Place ,
+                                         cidoc-crm:E74_Group ;
+                             rdfs:range cidoc-crm:E53_Place .
+
+
+###  http://schema.org/producer
+<http://schema.org/producer> rdf:type owl:ObjectProperty ;
+                             rdfs:domain lrmoo:F1_Work ,
+                                         lrmoo:F2_Expression ,
+                                         lrmoo:F3_Manifestation ;
+                             rdfs:range cidoc-crm:E39_Actor .
+
+
+###  http://schema.org/subEvent
+<http://schema.org/subEvent> rdf:type owl:ObjectProperty ;
+                             rdfs:domain lrmoo:F3_Manifestation ;
+                             rdfs:range schema:EventSeries .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P102_has_title
+cidoc-crm:P102_has_title rdf:type owl:ObjectProperty ;
+                         rdfs:domain lrmoo:F1_Work ,
+                                     lrmoo:F2_Expression ,
+                                     lrmoo:F5_Item ;
+                         rdfs:range cidoc-crm:E35_Title .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P129_is_about
+cidoc-crm:P129_is_about rdf:type owl:ObjectProperty ;
+                        rdfs:domain lrmoo:F1_Work ,
+                                    lrmoo:F2_Expression ;
+                        rdfs:range cidoc-crm:E55_Type .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+cidoc-crm:P2_has_type rdf:type owl:ObjectProperty ;
+                      rdfs:domain lrmoo:F5_Item ,
+                                  cidoc-crm:E21_Person ,
+                                  cidoc-crm:E55_Type ;
+                      rdfs:range cidoc-crm:E55_Type .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P62_depicts
+cidoc-crm:P62_depicts rdf:type owl:ObjectProperty ;
+                      rdfs:domain lrmoo:F2_Expression ;
+                      rdfs:range lrmoo:F5_Item .
+
+
+###  http://www.cidoc-crm.org/lrmoo/LRM-R5_was_created_by
+<http://www.cidoc-crm.org/lrmoo/LRM-R5_was_created_by> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain lrmoo:F1_Work ;
+                                                       rdfs:range cidoc-crm:E74_Group ,
+                                                                  wikidata:Q36834 ,
+                                                                  wikidata:Q482980 .
+
+
+###  http://www.cidoc-crm.org/lrmoo/LRM-R6_was_created_by
+<http://www.cidoc-crm.org/lrmoo/LRM-R6_was_created_by> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain lrmoo:F2_Expression ;
+                                                       rdfs:range cidoc-crm:E39_Actor .
+
+
+###  http://www.cidoc-crm.org/lrmoo/LRM-R7_was_created_by
+<http://www.cidoc-crm.org/lrmoo/LRM-R7_was_created_by> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain lrmoo:F3_Manifestation ;
+                                                       rdfs:range cidoc-crm:E39_Actor .
+
+
+###  https://www.geonames.org/ontology#countryCode
+gn:countryCode rdf:type owl:ObjectProperty ;
+               rdfs:domain cidoc-crm:E53_Place ;
+               rdfs:range cidoc-crm:E55_Type .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/amountofthisgood
+<http://schema.org/amountofthisgood> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf <http://schema.org/amountofthisgood> .
+
+
+###  http://schema.org/birthDate
+<http://schema.org/birthDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf <http://schema.org/date> ;
+                              rdfs:domain cidoc-crm:E21_Person ;
+                              rdfs:range xsd:date .
+
+
+###  http://schema.org/date
+<http://schema.org/date> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain lrmoo:F3_Manifestation ,
+                                     lrmoo:F5_Item ;
+                         rdfs:range xsd:date .
+
+
+###  http://schema.org/deathDate
+<http://schema.org/deathDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf <http://schema.org/date> ;
+                              rdfs:domain cidoc-crm:E21_Person ;
+                              rdfs:range xsd:date .
+
+
+###  http://schema.org/dissolutionDate
+<http://schema.org/dissolutionDate> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <http://schema.org/date> ;
+                                    rdfs:domain cidoc-crm:E74_Group ;
+                                    rdfs:range xsd:date .
+
+
+###  http://schema.org/duration
+<http://schema.org/duration> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain lrmoo:F3_Manifestation ,
+                                         lrmoo:F5_Item ;
+                             rdfs:range xsd:time .
+
+
+###  http://schema.org/endDate
+<http://schema.org/endDate> rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf <http://schema.org/date> ;
+                            rdfs:domain lrmoo:F3_Manifestation ;
+                            rdfs:range xsd:date .
+
+
+###  http://schema.org/foundingDate
+<http://schema.org/foundingDate> rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf <http://schema.org/date> ;
+                                 rdfs:domain cidoc-crm:E74_Group ;
+                                 rdfs:range xsd:date .
+
+
+###  http://schema.org/hasPart
+<http://schema.org/hasPart> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain lrmoo:F5_Item ;
+                            rdfs:range xsd:integer .
+
+
+###  http://schema.org/location
+<http://schema.org/location> rdf:type owl:DatatypeProperty ;
+                             rdfs:range xsd:string .
+
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain cidoc-crm:E39_Actor ,
+                                     cidoc-crm:E53_Place ;
+                         rdfs:range xsd:string .
+
+
+###  http://schema.org/number
+<http://schema.org/number> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain lrmoo:F2_Expression ;
+                           rdfs:range xsd:integer .
+
+
+###  http://schema.org/realaseDate
+<http://schema.org/realaseDate> rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf <http://schema.org/date> ;
+                                rdfs:domain lrmoo:F1_Work ,
+                                            lrmoo:F2_Expression ;
+                                rdfs:range xsd:date .
+
+
+###  http://schema.org/startDate
+<http://schema.org/startDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf <http://schema.org/date> ;
+                              rdfs:domain lrmoo:F3_Manifestation ;
+                              rdfs:range xsd:date .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+cidoc-crm:P2_has_type rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:string .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+cidoc-crm:P3_has_note rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:averageAmountOfTicketsSold
+<https://purl.archive.org/domain/mfae/MFAE:averageAmountOfTicketsSold> rdf:type owl:DatatypeProperty ;
+                                                                       rdfs:subPropertyOf <http://schema.org/amountofthisgood> ;
+                                                                       rdfs:domain lrmoo:F3_Manifestation ;
+                                                                       rdfs:range xsd:decimal .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:biografiaCompania
+<https://purl.archive.org/domain/mfae/MFAE:biografiaCompania> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:subPropertyOf cidoc-crm:P3_has_note ;
+                                                              rdfs:domain cidoc-crm:E74_Group ;
+                                                              rdfs:range xsd:string .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:biografiaPersona
+<https://purl.archive.org/domain/mfae/MFAE:biografiaPersona> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:subPropertyOf cidoc-crm:P3_has_note ;
+                                                             rdfs:domain cidoc-crm:E21_Person ;
+                                                             rdfs:range xsd:string .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:descripcionItem
+<https://purl.archive.org/domain/mfae/MFAE:descripcionItem> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:subPropertyOf cidoc-crm:P3_has_note ;
+                                                            rdfs:domain lrmoo:F5_Item ;
+                                                            rdfs:range xsd:string .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:descripcionObra
+<https://purl.archive.org/domain/mfae/MFAE:descripcionObra> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:subPropertyOf cidoc-crm:P3_has_note ;
+                                                            rdfs:range xsd:string .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:descripcionVersion
+<https://purl.archive.org/domain/mfae/MFAE:descripcionVersion> rdf:type owl:DatatypeProperty ;
+                                                               rdfs:subPropertyOf cidoc-crm:P3_has_note ;
+                                                               rdfs:domain lrmoo:F2_Expression ;
+                                                               rdfs:range xsd:string .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:numberOfSessions
+<https://purl.archive.org/domain/mfae/MFAE:numberOfSessions> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:subPropertyOf <http://schema.org/number> ;
+                                                             rdfs:domain lrmoo:F3_Manifestation ;
+                                                             rdfs:range xsd:integer .
+
+
+###  https://purl.archive.org/domain/mfae/MFAE:totalAmountOfTicketsSold
+<https://purl.archive.org/domain/mfae/MFAE:totalAmountOfTicketsSold> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:subPropertyOf <http://schema.org/amountofthisgood> ;
+                                                                     rdfs:domain lrmoo:F3_Manifestation ;
+                                                                     rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://iflastandards.info/ns/lrm/lrmoo/F1_Work
+lrmoo:F1_Work rdf:type owl:Class .
+
+
+###  http://iflastandards.info/ns/lrm/lrmoo/F2_Expression
+lrmoo:F2_Expression rdf:type owl:Class .
+
+
+###  http://iflastandards.info/ns/lrm/lrmoo/F3_Manifestation
+lrmoo:F3_Manifestation rdf:type owl:Class .
+
+
+###  http://iflastandards.info/ns/lrm/lrmoo/F5_Item
+lrmoo:F5_Item rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E21_Person
+cidoc-crm:E21_Person rdf:type owl:Class ;
+                     rdfs:subClassOf cidoc-crm:E39_Actor .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E35_Title
+cidoc-crm:E35_Title rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E39_Actor
+cidoc-crm:E39_Actor rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E53_Place
+cidoc-crm:E53_Place rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E55_Type
+cidoc-crm:E55_Type rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E74_Group
+cidoc-crm:E74_Group rdf:type owl:Class ;
+                    rdfs:subClassOf cidoc-crm:E39_Actor .
+
+
+###  https://purl.archive.org/domain/mfae/E56_LANGUAGE
+<https://purl.archive.org/domain/mfae/E56_LANGUAGE> rdf:type owl:Class ;
+                                                    rdfs:subClassOf cidoc-crm:E55_Type .
+
+
+###  https://schema.org/EventSeries
+schema:EventSeries rdf:type owl:Class .
+
+
+###  https://www.wikidata.org/wiki/Q1323191
+wikidata:Q1323191 rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc-crm:E21_Person ;
+                  rdfs:label "costume designer"@en .
+
+
+###  https://www.wikidata.org/wiki/Q1823479
+wikidata:Q1823479 rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc-crm:E21_Person ;
+                  rdfs:label "lighting designer"@en .
+
+
+###  https://www.wikidata.org/wiki/Q2490358
+wikidata:Q2490358 rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc-crm:E21_Person ;
+                  rdfs:label "choreographer"@en .
+
+
+###  https://www.wikidata.org/wiki/Q2707485
+wikidata:Q2707485 rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc-crm:E21_Person ;
+                  rdfs:label "scenographer" .
+
+
+###  https://www.wikidata.org/wiki/Q3455803
+wikidata:Q3455803 rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc-crm:E21_Person ;
+                  rdfs:label "director"@en .
+
+
+###  https://www.wikidata.org/wiki/Q36834
+wikidata:Q36834 rdf:type owl:Class ;
+                rdfs:subClassOf wikidata:Q639669 ;
+                rdfs:label "composer"@en .
+
+
+###  https://www.wikidata.org/wiki/Q482980
+wikidata:Q482980 rdf:type owl:Class ;
+                 rdfs:subClassOf cidoc-crm:E21_Person ;
+                 rdfs:label "author"@en .
+
+
+###  https://www.wikidata.org/wiki/Q5716684
+wikidata:Q5716684 rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc-crm:E21_Person ;
+                  rdfs:label "dancer"@en .
+
+
+###  https://www.wikidata.org/wiki/Q639669
+wikidata:Q639669 rdf:type owl:Class ;
+                 rdfs:subClassOf cidoc-crm:E21_Person ;
+                 rdfs:label "musician"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
