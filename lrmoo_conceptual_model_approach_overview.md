@@ -28,7 +28,7 @@ Para describir otra información encontrada en el archivo que se vincula de dive
 El resultado es una perspectiva diferenciada de las propuestas existentes, una que representa mejor el patrimonio de las artes escénicas. Su objetivo principal es establecer una axiomatización —es decir, nuestra interpretación de las clases WEMI dentro de este dominio— que sea flexible pero libre de contradicciones.
 
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 During the study of conceptual models, we noticed that LRMoo offers two possible approaches or perspectives to follow when mapping data.
