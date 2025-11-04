@@ -1,0 +1,1 @@
+En la presente carpeta se encontrarán las clases y propiedades de la ontología en dos formatos: Su versión en tabla PDF, para una fácil visualización; y su versión en JSON, con el propósito de facilitar la reutilización de la información.
