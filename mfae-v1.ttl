@@ -14,7 +14,7 @@
 
 <https://purl.archive.org/domain/mfae> rdf:type owl:Ontology .
 
-#	ANEXO 5. Referente a la ontología codificada en el formato de serialización Terse RDF Triple Language (Turtle)
+#	Referente a la ontología codificada en el formato de serialización Terse RDF Triple Language (Turtle)
 
 #################################################################
 #    Datatypes
@@ -325,6 +325,7 @@ cidoc-crm:P3_has_note rdf:type owl:DatatypeProperty .
 #################################################################
 #    Classes
 #################################################################
+
 
 ###  http://iflastandards.info/ns/lrm/lrmoo/F1_Work
 lrmoo:F1_Work rdf:type owl:Class .
