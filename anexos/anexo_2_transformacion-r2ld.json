@@ -1,0 +1,293 @@
+{
+  "OBRA": {
+    "dominio": "F1 Work",
+    "campos": {
+      "idObra": { "propiedad": null, "rango": null },
+      "tituloObra": { "propiedad": "P102 has title", "rango": "E35 Title" },
+      "anoEstrenoObra": { "propiedad": "schema:releaseDate", "rango": "DATE" },
+      "idiomaObra": { "propiedad": "schema:inLanguage", "rango": "E56 Language" },
+      "descripcionObra": { "propiedad": "MFAE:descripcionObra", "rango": "STRING" }
+    }
+  },
+  "VERSION": {
+    "dominio": "F2 Expression",
+    "campos": {
+      "idVersion": { "propiedad": null, "rango": null },
+      "fkObra": { "propiedad": "R3 realised in (realised)", "rango": "F1 Work" },
+      "tituloVersion": { "propiedad": "P102 has title", "rango": "E35 Title" },
+      "anoEstrenoVersion": { "propiedad": "schema:releaseDate", "rango": "DATE" },
+      "idiomaVersion": { "propiedad": "schema:inLanguage", "rango": "E56 Language" },
+      "numInterpretes": { "propiedad": "schema:number", "rango": "INTEGER" },
+      "descripcionVersion": { "propiedad": "MFAE:descripcionVersion", "rango": "STRING" },
+      "fkCartel": { "propiedad": "P62 depicts (is depicted by)", "rango": "F5 Item" }
+    }
+  },
+  "ESPECTACULO": {
+    "dominio": "F3 Manifestation",
+    "campos": {
+      "idEspectaculo": { "propiedad": null, "rango": null },
+      "fkObra": { "propiedad": "R4 embodies (is embodied in)", "rango": "F2 expression" },
+      "fkVersion": { "propiedad": null, "rango": null },
+      "fkLocalizacion": { "propiedad": "schema::location", "rango": "E53 Place" },
+      "fechaInicio": { "propiedad": "schema:startDate", "rango": "DATE" },
+      "fechaFin": { "propiedad": "schema:endDate", "rango": "DATE" },
+      "fecha": { "propiedad": "schema:Date", "rango": "DATE" },
+      "ciclo": { "propiedad": "schema:subEvent (superEvent)", "rango": "schema:EventSeries" },
+      "duracion": { "propiedad": "schema:duration", "rango": "TIME" },
+      "numSesiones": { "propiedad": "MFAE:numberOfSessions", "rango": "INTEGER" },
+      "numEntradasVendidas": { "propiedad": "MFAE:totalAmountOfTicketsSold", "rango": "INTEGER" },
+      "mediaEntradasVendidas": { "propiedad": "MFAE:averageAmountOfTicketsSold", "rango": "STRING" }
+    }
+  },
+  "FICHA_ARTISTICA": {
+    "dominio": null,
+    "campos": {
+      "IdFichaArtistica": { "propiedad": null, "rango": null },
+      "fkObra": { "dominio": "F1 Work", "propiedad": "LRM-R5 was created by", "rango": "E39 Actor" },
+      "fkVersion": { "dominio": "F2 Expression", "propiedad": "LRM-R6 was created by", "rango": null },
+      "fkEspectaculo": { "dominio": "F3 Manifestation", "propiedad": "LRM-R7 was created by", "rango": null },
+      "fkCompanyia": { "dominio": "E39 Actor", "propiedad": null, "rango": null },
+      "fkRolPersona": { "dominio": "F1 Work / F2 Expression / f4 manifestation singleton", "propiedad": "LRM-R5-R6i creates", "rango": null }
+    }
+  },
+  "COMPANIA": {
+    "dominio": "E74 GROUP",
+    "campos": {
+      "idCompania": { "propiedad": null, "rango": null },
+      "nombreCompania": { "propiedad": "schema:name", "rango": "STRING" },
+      "anoFundacion": { "propiedad": "schema:foundingDate", "rango": "DATE" },
+      "anoCierre": { "propiedad": "schema:dissolutionDate", "rango": null },
+      "fkOrigen": { "propiedad": "schema::location", "rango": "E53 Place" },
+      "biografíaCompania": { "propiedad": "MFAE:biografiaCompañia", "rango": "STRING" }
+    }
+  },
+  "IMAGENES": {
+    "dominio": "F5 Item",
+    "campos": {
+      "idImagen": { "propiedad": null, "rango": null },
+      "rutaImagen": { "propiedad": null, "rango": "STRING" },
+      "anoImagen": { "propiedad": "schema:Date", "rango": "TIME" },
+      "tipoImagen": { "propiedad": "P2 has type", "rango": "E55 Type" },
+      "descipcionImagen": { "propiedad": "MFAE:descripcionImagen", "rango": "STRING" },
+      "fkAutorImagen": { "propiedad": "schema:author", "rango": "E39 Actor" }
+    }
+  },
+  "IMAGEN_ESPECTACULO": {
+    "dominio": null,
+    "campos": {
+      "fkImagen": { "dominio": "F5 Item", "propiedad": "R7 exemplifies (is exemplified)", "rango": "F3 manifestation" },
+      "fkEspectaculo": { "dominio": "F3 manifestation", "propiedad": "R7 exemplifies (is exemplified)", "rango": "F5 Item" }
+    }
+  },
+  "INSTITUCION": {
+    "dominio": "E74 GROUP",
+    "campos": {
+      "idInstitucion": { "propiedad": null, "rango": null },
+      "nombreInstitucion": { "propiedad": "schema:name", "rango": "STRING" },
+      "fkLocalizacion": { "propiedad": "schema:location", "rango": "E53 Place" },
+      "anoApertutra": { "propiedad": "schema:foundingDate", "rango": "STRING" },
+      "anoCierre": { "propiedad": "schema:dissolutionDate", "rango": "STRING" }
+    }
+  },
+  "LUGARES": {
+    "dominio": "E53 Place",
+    "campos": {
+      "idLugar": { "propiedad": null, "rango": null },
+      "nombreLugar": { "propiedad": "schema:name", "rango": "STRING" },
+      "direccionLugar": { "propiedad": "schema::location", "rango": "STRING" },
+      "region": { "propiedad": "schema:name", "rango": "STRING" },
+      "pais": { "propiedad": "gn:countryCode", "rango": "E55 Type" }
+    }
+  },
+  "PERSONA": {
+    "dominio": "E21 Person",
+    "campos": {
+      "idPersona": { "propiedad": null, "rango": null },
+      "nombrePersona": { "propiedad": "schema:name", "rango": "STRING" },
+      "generoPersona": { "propiedad": "P2 has type", "rango": "E55 Type" },
+      "fechaNacimiento": { "propiedad": "schema:birthDate", "rango": "STRING" },
+      "fkLugarNacimiento": { "propiedad": "schema:birthPlace", "rango": "E53 Place" },
+      "fechaDefuncion": { "propiedad": "schema:deathDate", "rango": "STRING" },
+      "fkLugarDefuncion": { "propiedad": "schema:deathPlace", "rango": "E53 Place" },
+      "biografiaPersona": { "propiedad": "MFAE:biografiaPersona", "rango": "STRING" }
+    }
+  },
+{
+  "OBRA": {
+    "dominio": "F1 Work",
+    "campos": {
+      "idObra": { "propiedad": null, "rango": null },
+      "tituloObra": { "propiedad": "P102 has title", "rango": "E35 Title" },
+      "anoEstrenoObra": { "propiedad": "schema:releaseDate", "rango": "DATE" },
+      "idiomaObra": { "propiedad": "schema:inLanguage", "rango": "E56 Language" },
+      "descripcionObra": { "propiedad": "MFAE:descripcionObra", "rango": "STRING" }
+    }
+  },
+  "VERSION": {
+    "dominio": "F2 Expression",
+    "campos": {
+      "idVersion": { "propiedad": null, "rango": null },
+      "fkObra": { "propiedad": "R3 realised in (realised)", "rango": "F1 Work" },
+      "tituloVersion": { "propiedad": "P102 has title", "rango": "E35 Title" },
+      "anoEstrenoVersion": { "propiedad": "schema:releaseDate", "rango": "DATE" },
+      "idiomaVersion": { "propiedad": "schema:inLanguage", "rango": "E56 Language" },
+      "numInterpretes": { "propiedad": "schema:number", "rango": "INTEGER" },
+      "descripcionVersion": { "propiedad": "MFAE:descripcionVersion", "rango": "STRING" },
+      "fkCartel": { "propiedad": "P62 depicts (is depicted by)", "rango": "F5 Item" }
+    }
+  },
+  "ESPECTACULO": {
+    "dominio": "F3 Manifestation",
+    "campos": {
+      "idEspectaculo": { "propiedad": null, "rango": null },
+      "fkObra": { "propiedad": "R4 embodies (is embodied in)", "rango": "F2 expression" },
+      "fkVersion": { "propiedad": null, "rango": null },
+      "fkLocalizacion": { "propiedad": "schema::location", "rango": "E53 Place" },
+      "fechaInicio": { "propiedad": "schema:startDate", "rango": "DATE" },
+      "fechaFin": { "propiedad": "schema:endDate", "rango": "DATE" },
+      "fecha": { "propiedad": "schema:Date", "rango": "DATE" },
+      "ciclo": { "propiedad": "schema:subEvent (superEvent)", "rango": "schema:EventSeries" },
+      "duracion": { "propiedad": "schema:duration", "rango": "TIME" },
+      "numSesiones": { "propiedad": "MFAE:numberOfSessions", "rango": "INTEGER" },
+      "numEntradasVendidas": { "propiedad": "MFAE:totalAmountOfTicketsSold", "rango": "INTEGER" },
+      "mediaEntradasVendidas": { "propiedad": "MFAE:averageAmountOfTicketsSold", "rango": "STRING" }
+    }
+  },
+  "FICHA_ARTISTICA": {
+    "dominio": null,
+    "campos": {
+      "IdFichaArtistica": { "propiedad": null, "rango": null },
+      "fkObra": { "dominio": "F1 Work", "propiedad": "LRM-R5 was created by", "rango": "E39 Actor" },
+      "fkVersion": { "dominio": "F2 Expression", "propiedad": "LRM-R6 was created by", "rango": null },
+      "fkEspectaculo": { "dominio": "F3 Manifestation", "propiedad": "LRM-R7 was created by", "rango": null },
+      "fkCompanyia": { "dominio": "E39 Actor", "propiedad": null, "rango": null },
+      "fkRolPersona": { "dominio": "F1 Work / F2 Expression / f4 manifestation singleton", "propiedad": "LRM-R5-R6i creates", "rango": null }
+    }
+  },
+  "COMPANIA": {
+    "dominio": "E74 GROUP",
+    "campos": {
+      "idCompania": { "propiedad": null, "rango": null },
+      "nombreCompania": { "propiedad": "schema:name", "rango": "STRING" },
+      "anoFundacion": { "propiedad": "schema:foundingDate", "rango": "DATE" },
+      "anoCierre": { "propiedad": "schema:dissolutionDate", "rango": null },
+      "fkOrigen": { "propiedad": "schema::location", "rango": "E53 Place" },
+      "biografíaCompania": { "propiedad": "MFAE:biografiaCompañia", "rango": "STRING" }
+    }
+  },
+  "IMAGENES": {
+    "dominio": "F5 Item",
+    "campos": {
+      "idImagen": { "propiedad": null, "rango": null },
+      "rutaImagen": { "propiedad": null, "rango": "STRING" },
+      "anoImagen": { "propiedad": "schema:Date", "rango": "TIME" },
+      "tipoImagen": { "propiedad": "P2 has type", "rango": "E55 Type" },
+      "descipcionImagen": { "propiedad": "MFAE:descripcionImagen", "rango": "STRING" },
+      "fkAutorImagen": { "propiedad": "schema:author", "rango": "E39 Actor" }
+    }
+  },
+  "IMAGEN_ESPECTACULO": {
+    "dominio": null,
+    "campos": {
+      "fkImagen": { "dominio": "F5 Item", "propiedad": "R7 exemplifies (is exemplified)", "rango": "F3 manifestation" },
+      "fkEspectaculo": { "dominio": "F3 manifestation", "propiedad": "R7 exemplifies (is exemplified)", "rango": "F5 Item" }
+    }
+  },
+  "INSTITUCION": {
+    "dominio": "E74 GROUP",
+    "campos": {
+      "idInstitucion": { "propiedad": null, "rango": null },
+      "nombreInstitucion": { "propiedad": "schema:name", "rango": "STRING" },
+      "fkLocalizacion": { "propiedad": "schema:location", "rango": "E53 Place" },
+      "anoApertutra": { "propiedad": "schema:foundingDate", "rango": "STRING" },
+      "anoCierre": { "propiedad": "schema:dissolutionDate", "rango": "STRING" }
+    }
+  },
+  "LUGARES": {
+    "dominio": "E53 Place",
+    "campos": {
+      "idLugar": { "propiedad": null, "rango": null },
+      "nombreLugar": { "propiedad": "schema:name", "rango": "STRING" },
+      "direccionLugar": { "propiedad": "schema::location", "rango": "STRING" },
+      "region": { "propiedad": "schema:name", "rango": "STRING" },
+      "pais": { "propiedad": "gn:countryCode", "rango": "E55 Type" }
+    }
+  },
+  "PERSONA": {
+    "dominio": "E21 Person",
+    "campos": {
+      "idPersona": { "propiedad": null, "rango": null },
+      "nombrePersona": { "propiedad": "schema:name", "rango": "STRING" },
+      "generoPersona": { "propiedad": "P2 has type", "rango": "E55 Type" },
+      "fechaNacimiento": { "propiedad": "schema:birthDate", "rango": "STRING" },
+      "fkLugarNacimiento": { "propiedad": "schema:birthPlace", "rango": "E53 Place" },
+      "fechaDefuncion": { "propiedad": "schema:deathDate", "rango": "STRING" },
+      "fkLugarDefuncion": { "propiedad": "schema:deathPlace", "rango": "E53 Place" },
+      "biografiaPersona": { "propiedad": "MFAE:biografiaPersona", "rango": "STRING" }
+    }
+  }
+  {
+  "PRODUCCION_INSTITUCION_ESPECTACULO": {
+    "dominio": null,
+    "campos": {
+      "fkInstitucion": { "dominio": "E74 Group", "propiedad": "schema:Produces", "rango": "F1 Work / F2 Expression / F31 Performance" },
+      "fkObra": { "dominio": "F1 Work", "propiedad": "schema:Producer", "rango": "E74 Group" },
+      "fkVersion": { "dominio": "F2 Expression", "propiedad": null, "rango": null },
+      "fkEspectaculo": { "dominio": "F3 Manifestation", "propiedad": null, "rango": null }
+    }
+  },
+  "ROL": {
+    "dominio": "E55 Type",
+    "campos": {
+      "idRol": { "propiedad": null, "rango": null },
+      "tipoRol": { "propiedad": "P2 has type", "rango": "E55 Type" }
+    }
+  },
+  "ROL_PERSONA": {
+    "dominio": null,
+    "campos": {
+      "fkRol": { "dominio": "E55 Type", "propiedad": "P2i is type of", "rango": "E21 PERSON" },
+      "fkPersona": { "dominio": "E21 Person", "propiedad": "P2 has type", "rango": "E55 TYPE" }
+    }
+  },
+  "DESCRIPTORES": {
+    "dominio": "E55 Type",
+    "campos": {
+      "idDescriptor": { "propiedad": null, "rango": null },
+      "descriptor": { "propiedad": "P2 has type", "rango": "STRING" }
+    }
+  },
+  "DESCRIPTORES_ESPECTACULO": {
+    "dominio": null,
+    "campos": {
+      "fkDescriptor": { "dominio": "E55 Type", "propiedad": "P129i is subject of", "rango": "F1 Work / F2 Expression" },
+      "fkObra": { "dominio": "F1 Work", "propiedad": "P129 is about", "rango": "E55 Type" },
+      "fkVersion": { "dominio": "F2 Expression", "propiedad": null, "rango": null }
+    }
+  },
+  "VIDEOS": {
+    "dominio": "F5 Item",
+    "campos": {
+      "idVideo": { "propiedad": null, "rango": null },
+      "nombreVideo": { "propiedad": "P102 has title", "rango": "E35 Title" },
+      "anoGrabacion": { "propiedad": "schema:Date", "rango": "DATE" },
+      "fkAutorVideo": { "propiedad": "schema:author", "rango": "E21 Person" },
+      "descripcionVideo": { "propiedad": "MFAE:descripcionVideo", "rango": "STRING" },
+      "tipoVideo": { "propiedad": "P2 has type", "rango": "E55 Type" },
+      "parte": { "propiedad": "schema:hasPart", "rango": "INTEGER" },
+      "duracionTotal": { "propiedad": "schema:duration", "rango": "TIME" }
+    }
+  },
+  "VIDEO_ESPECTACULO": {
+    "dominio": null,
+    "campos": {
+      "idVideoEspectaculo": { "propiedad": null, "rango": null },
+      "fkVideo": { "dominio": "F5 Item", "propiedad": "R7 exemplifies (is exemplified)", "rango": "F3 manifestation" },
+      "fkEspectaculo": { "dominio": "F3 manifestation", "propiedad": "R7 exemplifies (is exemplified)", "rango": "F5 Item" }
+    }
+  }
+}
+
+}
+
+}
