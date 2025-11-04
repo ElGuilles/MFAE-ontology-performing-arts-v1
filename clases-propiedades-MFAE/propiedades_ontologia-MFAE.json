@@ -1,5 +1,3 @@
-{
-  "MODELO_LOGICO": [
     {
       "modelo": "MFAE",
       "propiedad": "MFAE:biografiaPersona",
@@ -234,4 +232,3 @@
       "subpropiedad": "schema:amountofthisgood",
       "definicion": "Número de entradas vendidas."
     }
-  ]
