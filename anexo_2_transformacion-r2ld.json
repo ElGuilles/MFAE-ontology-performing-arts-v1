@@ -104,7 +104,8 @@
     "fkDescriptor": { "propiedad": "P129i is subject of", "rango": "F1 Work / F2 Expression" },
     "fkObra": { "propiedad": "P129 is about", "rango": "E55 Type" },
     "fkVersion": { "propiedad": "P129 is about", "rango": "E55 Type" 
-	  "VIDEOS": {
+  },
+  "VIDEOS": {
     "idVideo": {},
     "nombreVideo": { "propiedad": "P102 has title", "rango": "E35 Title" },
     "anoGrabacion": { "propiedad": "schema:Date", "rango": "DATE" },
@@ -120,4 +121,5 @@
     "fkEspectaculo": { "propiedad": "R7 exemplifies (is exemplified)", "rango": "F5 Item" }
   }
 }
+
 
