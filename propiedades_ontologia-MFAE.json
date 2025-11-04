@@ -1,0 +1,194 @@
+
+    {
+      "propiedad": "MFAE:biografiaPersona",
+      "subpropiedad": "P3 has note",
+      "cardinalidad": "(0,n:0,1)",
+      "definicion": "Utilizado para anotar algo sobre lo que se describe que no se puede describir a partir de constructos más específicos de CIDOC CRM"
+    },
+    {
+      "propiedad": "MFAE:biografiaCompañia",
+      "subpropiedad": "P3 has note",
+      "cardinalidad": "(0,n:0,1)",
+      "definicion": "Esta propiedad permite añadir la biografía de una persona o grupo de personas."
+    },
+    {
+      "propiedad": "MFAE:descripcionObra",
+      "subpropiedad": "P3 has note",
+      "cardinalidad": "(0,n:0,1)",
+      "definicion": "Esta propiedad permite añadir la descripción del concepto o conceptos intelectuales o artísticos en los que se basa F1 Work."
+    },
+    {
+      "propiedad": "MFAE:descripcionVersion",
+      "subpropiedad": "P3 has note",
+      "cardinalidad": "(0,n:0,1)",
+      "definicion": "Esta propiedad permite añadir la descripción de F2 Expression."
+    },
+    {
+      "propiedad": "MFAE:descripcionImagen",
+      "subpropiedad": "P3 has note",
+      "cardinalidad": "(0,n:0,1)",
+      "definicion": "Esta propiedad permite describir una imagen."
+    },
+    {
+      "propiedad": "P102 has title",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Título de una cosa, permite a cualquier objeto material o inmaterial tener un nombre."
+    },
+    {
+      "propiedad": "P129 is about",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Indica la temática de una cosa."
+    },
+    {
+      "propiedad": "P2 has type",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Permite especializar entidades del CIDOC CRM mediante la asignación de tipos definidos en E55 Type."
+    },
+    {
+      "propiedad": "MFAE:tieneMateriaPrincipal",
+      "subpropiedad": "P2 has type",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Indica el tipo de disciplina sobre el que se articula F1 Work o F2 Expression."
+    },
+    {
+      "propiedad": "P62 Depicts (is depicted by)",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Indica una relación entre lo que se muestra en F5 Item y la F2 Manifestation a la que pertenece."
+    },
+    {
+      "propiedad": "R3 realised in (realises)",
+      "subpropiedad": "P130 shows features of",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Expresa la asociación entre una expresión y la obra que comunica."
+    },
+    {
+      "propiedad": "R4 embodies (is embodied in)",
+      "subpropiedad": "P165 incorporates",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Asocia una instancia de F3 Manifestación con una o más instancias de F2 Expresión."
+    },
+    {
+      "propiedad": "R7 exemplifies (is exemplified)",
+      "subpropiedad": "P128 carries",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Asocia una instancia de F3 Manifestación con una instancia de F5 Ítem."
+    },
+    {
+      "propiedad": "LRM-R5 was created by",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Instancia de E39 Actor que participó en la creación de una instancia de F1 Work"
+    },
+    {
+      "propiedad": "LRM-R6 was created by",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Instancia de E39 Actor que participó en la creación de una instancia de F2 Expression"
+    },
+    {
+      "propiedad": "LRM-R7 was created by",
+      "cardinalidad": "(0,n:0,n)",
+      "definicion": "Instancia de E39 Actor que participó en la creación de una instancia de F3 Manifestation"
+    },
+    {
+      "propiedad": "gn:countryCode",
+      "cardinalidad": "(1,1:0,n)",
+      "definicion": "Dos primeras letras del país según la norma ISO 3166."
+    },
+    {
+      "propiedad": "MFAE:averageAmountOfTicketsSold",
+      "subpropiedad": "schema:amountofthisgood",
+      "definicion": "Media de entradas vendidas."
+    },
+    {
+      "propiedad": "MFAE:numberOfSessions",
+      "subpropiedad": "schema:amountofthisgood",
+      "definicion": "Número de sesiones totales."
+    },
+    {
+      "propiedad": "schema:author",
+      "definicion": "Autor/a de un contenido concreto"
+    },
+    {
+      "propiedad": "schema:birthDate",
+      "definicion": "Fecha de nacimiento."
+    },
+    {
+      "propiedad": "schema:birthPlace",
+      "definicion": "Localización de nacimiento."
+    },
+    {
+      "propiedad": "schema:Date",
+      "definicion": "Fecha definida según ISO 8601 date format."
+    },
+    {
+      "propiedad": "schema:datePublished",
+      "definicion": "Fecha en la que se publica el artículo en cuestión."
+    },
+    {
+      "propiedad": "schema:deathDate",
+      "definicion": "Fecha de defunción."
+    },
+    {
+      "propiedad": "schema:deathPlace",
+      "definicion": "Localización de defunción."
+    },
+    {
+      "propiedad": "schema:dissolutionDate",
+      "definicion": "Año en el que se disuelve un grupo"
+    },
+    {
+      "propiedad": "schema:duration",
+      "definicion": "Define la duración de algo según ISO 8601 duration format"
+    },
+    {
+      "propiedad": "schema:endDate",
+      "definicion": "Fecha en la que acaba algo."
+    },
+    {
+      "propiedad": "schema:foundingDate",
+      "definicion": "Fecha en la que una organización fue creada."
+    },
+    {
+      "propiedad": "schema:hasPart",
+      "definicion": "Sirve para hacer referencia a la parte de un todo."
+    },
+    {
+      "propiedad": "schema:inLanguage",
+      "definicion": "Lengua en la que se desarrolla algo."
+    },
+    {
+      "propiedad": "schema:location",
+      "definicion": "Lugar en el que sucede o se encuentra o se ha encontrado algo"
+    },
+    {
+      "propiedad": "schema:name",
+      "definicion": "Define el nombre con el que nos referimos a algo."
+    },
+    {
+      "propiedad": "schema:number",
+      "definicion": "dataType:Number"
+    },
+    {
+      "propiedad": "schema:Producer",
+      "definicion": "Entidad o persona que produce un evento."
+    },
+    {
+      "propiedad": "schema:publisher",
+      "definicion": "Editor del artículo en cuestión."
+    },
+    {
+      "propiedad": "schema:releaseDate",
+      "definicion": "Fecha en la que una obra fue estrenada."
+    },
+    {
+      "propiedad": "schema:startDate",
+      "definicion": "Fecha en la que comienza algo."
+    },
+    {
+      "propiedad": "schema:subEvent",
+      "definicion": "Evento, en su significado de ciclo o festival, al que pertenecen una o más instancias de F3 Manifestation"
+    },
+    {
+      "propiedad": "totalAmountOfTicketsSold",
+      "subpropiedad": "schema:amountofthisgood",
+      "definicion": "Número de entradas vendidas."
+    }
